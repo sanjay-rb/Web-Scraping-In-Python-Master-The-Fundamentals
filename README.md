@@ -8,4 +8,8 @@
 - selenium module ``` pip install selenium ```
     - To do some interaction on the web page to extract extra information
 - Web driver ``` driver\chromedriver.exe ```
-    - To pass the interaction with browser (I have used chrome browser driver you can install and use your browser driver)
+    - To pass the interaction with browser *(I have used chrome browser driver you can install and use your browser driver)*
+
+## HTTP Status Code
+- You can check the below link to know more about status code.
+    - https://httpstatuses.com/
