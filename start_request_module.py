@@ -1,8 +1,8 @@
-"""
-Created on Sun Dec 26 10:59:34 2021
+'''
+Created on 27 December 2021 10:16:10
 
-@author: Sanjay
-"""
+@author: Sanjay R B
+'''
 import requests
 
 url = 'https://finance.yahoo.com/quote/AAPL?p=AAPL'

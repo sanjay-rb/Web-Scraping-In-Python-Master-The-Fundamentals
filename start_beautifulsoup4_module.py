@@ -1,8 +1,8 @@
-"""
-Created on Sun Dec 26 10:59:34 2021
+'''
+Created on 27 December 2021 10:15:07
 
-@author: Sanjay
-"""
+@author: Sanjay R B
+'''
 import requests
 from bs4 import BeautifulSoup
 
@@ -12,9 +12,9 @@ url = 'https://finance.yahoo.com/quote/AAPL?p=AAPL'
 responce = requests.get(url)
 html = responce.text
 
-tag = 'Previous Close'
 soup = BeautifulSoup(html, features="html.parser")
 
+tag = 'Previous Close'
 find_by_tag = soup.find_all('tr')
 for row in find_by_tag:
     if tag in row.text:
@@ -50,7 +50,8 @@ pprint(list_of_tag_have_class)
  '1y Target Est']
  '''
 
-find_by_attribute = soup.find_all('td',attrs={"data-test":"PREV_CLOSE-value"})
+find_by_attribute = soup.find_all(
+    'td', attrs={"data-test": "PREV_CLOSE-value"})
 list_of_tag_have_attribute = []
 for row in find_by_attribute:
     if row != None:
@@ -68,7 +69,6 @@ for row in find_by_tag:
     val = row.find('td', class_="Ta(end) Fw(600) Lh(14px)")
     if tag != None and val != None:
         tagVal[tag.text] = val.text
-
 pprint(tagVal)
 '''
 {'1y Target Est': '174.93',
