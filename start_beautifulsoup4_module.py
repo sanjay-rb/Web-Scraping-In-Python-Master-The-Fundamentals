@@ -8,9 +8,6 @@ from bs4 import BeautifulSoup
 
 url = 'https://finance.yahoo.com/quote/AAPL?p=AAPL'
 responce = requests.get(url)
-
-print("Responce :", responce)
-print("Status code :", responce.status_code)
 html = responce.text
 
 tag = 'Previous Close'
@@ -25,8 +22,16 @@ for row in find_by_tag:
 
 find_by_class = soup.find_all('td', class_="C($primaryColor) W(51%)")
 for row in find_by_class:
-    print("find_by_class", row)
+    print("find_by_class", row.text)
 
 find_by_attribute = soup.find_all('td',attrs={"data-test":"PREV_CLOSE-value"})
 for row in find_by_attribute:
-    print("find_by_attribute", row)
+    print("find_by_attribute", row.text)
+
+# To find all values from the table till 1y Target Est
+find_by_tag = soup.find_all('tr')
+for row in find_by_tag:
+    tag = row.find('td', class_="C($primaryColor) W(51%)")
+    val = row.find('td', class_="Ta(end) Fw(600) Lh(14px)")
+    if tag != None and val != None:
+        print(tag.text, val.text)
